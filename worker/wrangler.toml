@@ -1,0 +1,5 @@
+name = "smartaudit-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+# Cloudflare secret: npx wrangler secret put ETHERSCAN_API_KEY
+# Optional restriction: [vars] FRONTEND_ORIGIN = "https://xulytiengviet.github.io"
