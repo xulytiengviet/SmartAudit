@@ -1,4 +1,4 @@
-import { validAddress, normalizeEtherscan, normalizeSourcify, analyzeContract } from "../web/scanner.js";
+import { validAddress, normalizeEtherscan, normalizeSourcify, analyzeContract } from "../../web/scanner.js";
 const ALLOWED_CHAINS = new Set([1, 11155111, 560048, 17000]);
 function json(data,status=200,origin="*"){return new Response(JSON.stringify(data),{status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"no-store","access-control-allow-origin":origin,"access-control-allow-methods":"GET, OPTIONS","x-content-type-options":"nosniff"}})}
 async function fetchJSON(url){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);try{const response=await fetch(url,{signal:controller.signal,headers:{"accept":"application/json"}});if(!response.ok)throw Error("Nguồn dữ liệu trả về HTTP "+response.status);const text=await response.text();if(text.length>2400000)throw Error("Phản hồi mã nguồn vượt giới hạn");return JSON.parse(text)}finally{clearTimeout(timer)}}
